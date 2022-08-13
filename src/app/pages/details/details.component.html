@@ -1,0 +1,46 @@
+<body>
+  <app-header></app-header>
+
+  <ng-template [ngIf]="!isLoading">
+    <main>
+      <div>
+        <h1 class="slideInLeft">{{ pokemon[0].name }}</h1>
+        <h2 class="slideInRight">{{ pokemon[1].names[0].name }}</h2>
+      </div>
+
+      <section>
+        <img
+          [src]="pokemon[0].sprites.other.dream_world.front_default"
+          [alt]="pokemon[0].name"
+          class="slideInDown"
+        />
+
+        <article class="fadeIn">
+          <section>
+            <div>
+              <h3>Estatísticas</h3>
+
+              <ol>
+                <li *ngFor="let value of pokemon[0].stats">
+                  {{ value.stat.name }}
+                  <strong>
+                    {{ value.base_stat }}
+                  </strong>
+                </li>
+              </ol>
+            </div>
+
+            <a [routerLink]="['']" class="button">Voltar</a>
+          </section>
+        </article>
+      </section>
+    </main>
+  </ng-template>
+
+  <img
+    src="assets/imgs/error.png"
+    alt="Erro ao carregar pokemon"
+    width="100%"
+    *ngIf="apiError"
+  />
+</body>

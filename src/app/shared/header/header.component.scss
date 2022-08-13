@@ -1,0 +1,10 @@
+// :host -> css aplicado apenas nesse componente
+:host {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 0;
+  }
+}
